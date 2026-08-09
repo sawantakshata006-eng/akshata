@@ -3,11 +3,486 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>Akshata Sawant | Frontend Developer</title>
+
+    <style>
+        /* Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f8f9fc;
+            color: #222;
+        }
+
+        /* Navigation */
+        nav {
+            width: 100%;
+            padding: 18px 8%;
+            background: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            color: #6c3cff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #222;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #6c3cff;
+        }
+
+        /* Hero Section */
+        #home {
+            min-height: 100vh;
+            padding: 120px 10% 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            background: linear-gradient(135deg, #f5f1ff, #ffffff);
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h3 {
+            font-size: 22px;
+            color: #555;
+        }
+
+        .hero-text h1 {
+            font-size: 55px;
+            color: #222;
+            margin: 10px 0;
+        }
+
+        .hero-text h1 span {
+            color: #6c3cff;
+        }
+
+        .hero-text h2 {
+            font-size: 25px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            color: #666;
+            line-height: 1.8;
+            max-width: 550px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #6c3cff;
+            color: white;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 25px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #4f20d9;
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .profile-circle {
+            width: 320px;
+            height: 320px;
+            margin: auto;
+            border-radius: 50%;
+            background: #6c3cff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(108, 60, 255, 0.3);
+        }
+
+        /* Common Section */
+        section {
+            padding: 80px 10%;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 45px;
+        }
+
+        .title span {
+            color: #6c3cff;
+        }
+
+        /* About */
+        .about-content {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .skill-card h3 {
+            color: #6c3cff;
+        }
+
+        /* Projects */
+        #projects {
+            background: #f1efff;
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .project-card h3 {
+            margin-bottom: 12px;
+            color: #6c3cff;
+        }
+
+        .project-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* Contact */
+        .contact-content {
+            text-align: center;
+        }
+
+        .contact-content p {
+            margin: 10px;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #222;
+            color: white;
+        }
+
+        /* Tablet Responsive */
+        @media (max-width: 900px) {
+
+            .skills-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-text h1 {
+                font-size: 42px;
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 15px 5%;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav ul {
+                gap: 12px;
+                font-size: 13px;
+            }
+
+            #home {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 160px 7% 60px;
+            }
+
+            .hero-text h1 {
+                font-size: 35px;
+            }
+
+            .hero-text h2 {
+                font-size: 20px;
+            }
+
+            .profile-circle {
+                width: 220px;
+                height: 220px;
+                font-size: 70px;
+            }
+
+            .skills-container,
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 60px 7%;
+            }
+
+            .title {
+                font-size: 28px;
+            }
+        }
+
+    </style>
 </head>
+
 <body>
-    <h1>Akshata sawant</h1>  
-    <p>I am Akshata sawant</p>
-    
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Akshata.</div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Home -->
+    <section id="home">
+
+        <div class="hero-text">
+            <h3>Hello, I'm</h3>
+
+            <h1>Akshata <span>Sawant</span></h1>
+
+            <h2>Frontend Developer</h2>
+
+            <p>
+                I am a passionate Frontend Developer and B.Sc. IT student.
+                I enjoy creating beautiful, responsive and user-friendly
+                websites using modern web technologies.
+            </p>
+
+            <a href="#contact" class="btn">Contact Me</a>
+        </div>
+
+        <div class="hero-image">
+            <div class="profile-circle">
+                AS
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- About -->
+    <section id="about">
+
+        <h2 class="title">About <span>Me</span></h2>
+
+        <div class="about-content">
+            <p>
+                My name is Akshata Sawant. I am interested in web development
+                and technology. I enjoy designing responsive websites and
+                learning new programming languages and frameworks.
+            </p>
+
+            <br>
+
+            <p>
+                My goal is to become a skilled Full Stack Developer and build
+                creative and useful web applications.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- Skills -->
+    <section id="skills">
+
+        <h2 class="title">My <span>Skills</span></h2>
+
+        <div class="skills-container">
+
+            <div class="skill-card">
+                <h3>HTML</h3>
+                <p>Web Structure</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>CSS</h3>
+                <p>Responsive Design</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>JavaScript</h3>
+                <p>Interactive Websites</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Java</h3>
+                <p>Programming</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Projects -->
+    <section id="projects">
+
+        <h2 class="title">My <span>Projects</span></h2>
+
+        <div class="projects-container">
+
+            <div class="project-card">
+                <h3>Furniture Shop Website</h3>
+
+                <p>
+                    A responsive furniture shopping website created using
+                    HTML, CSS and JavaScript.
+                </p>
+
+                <a href="#" class="btn">View Project</a>
+            </div>
+
+
+            <div class="project-card">
+                <h3>Portfolio Website</h3>
+
+                <p>
+                    A personal responsive portfolio website to display my
+                    skills, projects and contact information.
+                </p>
+
+                <a href="#" class="btn">View Project</a>
+            </div>
+
+
+            <div class="project-card">
+                <h3>Java Programs</h3>
+
+                <p>
+                    A collection of Java programs including Prime Number,
+                    Armstrong Number and other basic programs.
+                </p>
+
+                <a href="#" class="btn">View Project</a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Contact -->
+    <section id="contact">
+
+        <h2 class="title">Contact <span>Me</span></h2>
+
+        <div class="contact-content">
+
+            <p><strong>Name:</strong> Akshata Sawant</p>
+
+            <p><strong>Role:</strong> Frontend Developer</p>
+
+            <p><strong>Email:</strong> your-email@example.com</p>
+
+            <p><strong>Location:</strong> Maharashtra, India</p>
+
+            <br>
+
+            <a href="mailto:your-email@example.com" class="btn">
+                Send Message
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Akshata Sawant | Frontend Developer</p>
+    </footer>
+
 </body>
 </html>
